@@ -1,0 +1,17 @@
+name: build IPA to DEB
+
+on:
+  workflow_dispatch:
+
+jobs:
+  Instance:
+    runs-on: macos-latest      
+    steps:
+    - name: install dpkg
+      run: brew install dpkg
+
+    - name: Checkout
+      run: git clone https://github.com/itsnebulalol/permasigner
+
+    - name: Install dependences
+      run: cd permasigner && pip install -r requirements.txt
