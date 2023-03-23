@@ -1,0 +1,15 @@
+name: test
+on:
+  workflow_dispatch:
+
+jobs:
+  job1:
+    runs-on: macos-latest      
+    steps:
+    - name: step1
+      id: step1
+      env:
+        DAY_OF_WEEK: Monday
+
+    - name: step2
+      run: echo ${{ step1.env.DAY_OF_WEEK }}
